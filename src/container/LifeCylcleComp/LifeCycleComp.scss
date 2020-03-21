@@ -1,0 +1,19 @@
+$color: #2d3c8d;
+
+.btn {
+	cursor: pointer;
+	outline: none;
+	border: 2px solid $color;
+	background: none;
+	color: $color;
+	padding: 0.75em 1em;
+	border-radius: 6px;
+	font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: 0.11s;
+
+	&:hover {
+		background: $color;
+		color: #f3f3f3;
+	}
+}

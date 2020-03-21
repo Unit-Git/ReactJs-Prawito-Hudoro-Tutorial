@@ -9,7 +9,6 @@ class CardProduct extends Component {
 	heandleCounterChange = newValue => {
 		this.props.onCounterChange(newValue);
 	};
-
 	heandlePlus = () => {
 		this.setState(
 			{
@@ -47,9 +46,9 @@ class CardProduct extends Component {
 				</p>
 				<p className='product-price'>Rp. 250,000</p>
 				<div className='counter'>
-					<buttun className='minus' onClick={this.heandleMinus}>
+					<button className='minus' onClick={this.heandleMinus}>
 						-
-					</buttun>
+					</button>
 					<input
 						className='input-counter'
 						type='text'
