@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 // import YouTubeComp from '../../component/YouTubeComp/YouTubeComp';
 // import Product from '../Product/Product';
-import LifeCycleComponent from '../LifeCylcleComp/LifeCycleComp';
+// import LifeCycleComponent from '../LifeCylcleComp/LifeCycleComp';
+import BlogPost from '../BlogPost/BlogPost';
 
 class Home extends Component {
-	state = {
-		showComponent: true
-	};
+	// state = {
+	// 	showComponent: true
+	// };
 
-	componentDidMount() {}
+	// componentDidMount() {}
 
 	render() {
 		return (
@@ -40,15 +41,19 @@ class Home extends Component {
                     1 tahun lalu'
 				/>
 				<YouTubeComp /> */}
-				<h1>LifeCycle Component</h1>
+				{/* <h1>LifeCycle Component</h1>
 				<hr />
 				{this.state.showComponent ? <LifeCycleComponent /> : null}
 
 				<br />
-				<br />
+				<br /> */}
 				{/* <h1>Counter</h1>
 				<hr />
 				<Product /> */}
+				<h1>Interaksi Dengan Back-end</h1>
+				<hr />
+
+				<BlogPost />
 			</div>
 		);
 	}
