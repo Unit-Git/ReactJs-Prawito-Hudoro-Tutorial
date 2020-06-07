@@ -5,36 +5,37 @@ import Axios from 'axios';
 
 export default class BlogPost extends Component {
 	state = {
-		post: []
+		post: [],
+	};
+
+	handleLoadData = () => {
+		Axios.get('http://localhost:5000/posts')
+			.then((res) => {
+				this.setState({
+					post: res.data,
+				});
+			})
+			.catch((err) => console.log(err));
+	};
+
+	handleRemove = (id) => {
+		Axios.delete('http://localhost:5000/posts/' + id).then((res) => {
+			alert('Data Berhasil diHapus!');
+			this.handleLoadData();
+		});
 	};
 
 	componentDidMount() {
-		// fetch('https://jsonplaceholder.typicode.com/posts')
-		// 	.then(response => response.json())
-		// 	.then(json => {
-		// 		this.setState({
-		// 			post: json
-		// 		});
-		// 	});
-
-		Axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
-			this.setState({
-				post: res.data
-			});
-		});
+		this.handleLoadData();
 	}
 
 	render() {
 		return (
 			<Fragment>
 				<h5 className='title-section'>History Post</h5>
-				{this.state.post.map(dataPost => {
+				{this.state.post.map((post) => {
 					return (
-						<CardPost
-							key={dataPost.id}
-							title={dataPost.title}
-							desc={dataPost.body}
-						/>
+						<CardPost key={post.id} data={post} onDelete={this.handleRemove} />
 					);
 				})}
 			</Fragment>

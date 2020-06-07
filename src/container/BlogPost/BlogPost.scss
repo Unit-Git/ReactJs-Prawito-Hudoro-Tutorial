@@ -45,3 +45,24 @@
 		color: #333;
 	}
 }
+
+.btn-remove {
+	padding: {
+		left: 1.5em;
+		right: 1.5em;
+		top: 0.85em;
+		bottom: 0.85em;
+	}
+	color: #f4f4f4;
+	outline: none;
+	background-color: #ff0080;
+	display: flex;
+	border: none;
+	margin-left: auto;
+	border-radius: 0.4em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+	&:hover {
+		cursor: pointer;
+	}
+}

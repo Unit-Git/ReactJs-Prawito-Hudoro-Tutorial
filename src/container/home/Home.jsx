@@ -52,7 +52,6 @@ class Home extends Component {
 				<Product /> */}
 				<h1>Interaksi Dengan Back-end</h1>
 				<hr />
-
 				<BlogPost />
 			</div>
 		);
