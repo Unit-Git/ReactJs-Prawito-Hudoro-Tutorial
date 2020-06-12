@@ -1,3 +1,45 @@
+.main--content {
+	width: 100%;
+	display: flex;
+}
+
+.form {
+	&--post {
+		width: 100%;
+		display: flex;
+		padding: 1em 3rem;
+		flex-direction: column;
+	}
+
+	&--group {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	&--input {
+		padding: 0.6rem 1rem;
+		border-radius: 5px;
+		outline: none;
+		border: 1px solid #353535;
+
+		&:active,
+		&:focus {
+			border: 1px solid #ff0080;
+		}
+	}
+}
+
+.submit {
+	width: 70px;
+}
+
+.col--data {
+	display: flex;
+	flex-direction: column;
+}
+
 .title-section {
 	color: rgb(126, 126, 126) !important;
 	font-size: 1.5em;
