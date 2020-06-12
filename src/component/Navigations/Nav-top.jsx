@@ -17,6 +17,11 @@ const NavTop = (props) => {
 					</Link>
 				</li>
 				<li className='topbar-item'>
+					<Link className='topbar-link' to={props.youtubeComp}>
+						Youtube Components
+					</Link>
+				</li>
+				<li className='topbar-item'>
 					<Link className='topbar-link' to={props.lifeCycle}>
 						LifeCycle
 					</Link>

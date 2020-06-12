@@ -1,7 +1,7 @@
 import React from 'react';
 import './YouTubeComp.css';
 
-const YouTubeComp = props => {
+const YouTubeComp = (props) => {
 	return (
 		<div className='youtube-wrapper'>
 			<div className='img-thumb'>
@@ -20,7 +20,7 @@ const YouTubeComp = props => {
 YouTubeComp.defaultProps = {
 	time: '00.00',
 	title: 'Title Tutorial ReactJs Bahasa Indonesia',
-	desc: 'x x ditonton, x xxx yang lalu'
+	desc: 'x x ditonton, x xxx yang lalu',
 };
 
 export default YouTubeComp;

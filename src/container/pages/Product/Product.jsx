@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import './Product.css';
-import CardProduct from '../CardProduct/CardProduct';
+import CardProduct from './CardProduct/CardProduct';
 
 class Product extends Component {
 	state = {
-		order: 4
+		order: 4,
 	};
 
-	heandleCounterChange = newValue => {
+	heandleCounterChange = (newValue) => {
 		this.setState({
-			order: newValue
+			order: newValue,
 		});
 	};
 
@@ -32,7 +32,7 @@ class Product extends Component {
 					</div>
 				</div>
 				<CardProduct
-					onCounterChange={value => {
+					onCounterChange={(value) => {
 						this.heandleCounterChange(value);
 					}}
 				/>
