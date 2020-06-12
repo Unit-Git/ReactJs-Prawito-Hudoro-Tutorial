@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 
 class CardProduct extends Component {
+	constructor(props) {
+		super(props);
+		this.input = React.createRef();
+	}
+
 	state = {
 		order: 4,
-		name: 'akbar'
+		name: 'akbar',
 	};
 
-	heandleCounterChange = newValue => {
+	heandleCounterChange = (newValue) => {
 		this.props.onCounterChange(newValue);
+		this.input.current.value = this.state.order;
 	};
+
 	heandlePlus = () => {
 		this.setState(
 			{
-				order: this.state.order + 1
+				order: this.state.order + 1,
 			},
 			() => {
 				this.heandleCounterChange(this.state.order);
@@ -23,7 +30,7 @@ class CardProduct extends Component {
 		if (this.state.order > 1) {
 			this.setState(
 				{
-					order: this.state.order - 1
+					order: this.state.order - 1,
 				},
 				() => {
 					this.heandleCounterChange(this.state.order);
@@ -52,8 +59,10 @@ class CardProduct extends Component {
 					<input
 						className='input-counter'
 						type='text'
-						value={this.state.order}
+						defaultValue={this.state.order}
+						ref={this.input}
 					/>
+
 					<button className='plus' onClick={this.heandlePlus}>
 						+
 					</button>
