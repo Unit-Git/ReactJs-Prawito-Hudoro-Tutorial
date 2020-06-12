@@ -1,27 +1,21 @@
 {
   "posts": [
     {
-      "id": 1591936322683,
-      "title": "Covid-19",
-      "body": "penyebaran covid-19",
+      "id": 1591946176218,
+      "title": "first post title",
+      "body": "first post body",
       "userId": 1
     },
     {
-      "id": 1591936379724,
-      "title": "Web programming roadmap",
-      "body": "Roadmap web programming",
+      "id": 1591946442949,
+      "title": "second post",
+      "body": "second post content",
       "userId": 1
     },
     {
-      "id": 1591941559036,
-      "title": "Post 3",
-      "body": "konten post 3\n",
-      "userId": 1
-    },
-    {
-      "id": 1591942072674,
-      "title": "test",
-      "body": "data",
+      "id": 1591948489453,
+      "title": "third post",
+      "body": "third post content",
       "userId": 1
     }
   ],

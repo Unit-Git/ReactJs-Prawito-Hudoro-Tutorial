@@ -12,6 +12,8 @@ export default class BlogPost extends Component {
 			body: '',
 			userId: 1,
 		},
+		isUpdate: false,
+		textButton: 'Tambah',
 	};
 
 	handleLoadData = () => {
@@ -24,15 +26,41 @@ export default class BlogPost extends Component {
 			.catch((err) => console.log(err));
 	};
 
-	postDataToApi = (title, body) => {
+	postDataToApi = () => {
 		Axios.post('http://localhost:5000/posts', this.state.formBlogPost).then(
 			(res) => {
-				title.value = '';
-				body.value = '';
+				this.setState({
+					formBlogPost: {
+						id: '',
+						title: '',
+						body: '',
+						userId: 1,
+					},
+					isUpdate: false,
+					textButton: 'Tambah',
+				});
 				this.handleLoadData();
-				console.log(res);
 			}
 		);
+	};
+
+	putDataToApi = (id) => {
+		Axios.put(
+			'http://localhost:5000/posts/' + this.state.formBlogPost.id,
+			this.state.formBlogPost
+		).then((res) => {
+			this.setState({
+				formBlogPost: {
+					id: '',
+					title: '',
+					body: '',
+					userId: 1,
+				},
+				isUpdate: false,
+				textButton: 'Tambah',
+			});
+			this.handleLoadData();
+		});
 	};
 
 	handleRemove = (id) => {
@@ -41,10 +69,20 @@ export default class BlogPost extends Component {
 		});
 	};
 
+	handleUpdate = (data) => {
+		this.setState({
+			formBlogPost: data,
+			isUpdate: true,
+			textButton: 'Update',
+		});
+	};
+
 	handleFormChange = (event) => {
 		let formBlogPostNew = { ...this.state.formBlogPost };
 		let timeStamp = new Date().getTime();
-		formBlogPostNew['id'] = timeStamp;
+		if (!this.state.isUpdate) {
+			formBlogPostNew['id'] = timeStamp;
+		}
 		formBlogPostNew[event.target.name] = event.target.value;
 		this.setState({
 			formBlogPost: formBlogPostNew,
@@ -52,9 +90,11 @@ export default class BlogPost extends Component {
 	};
 
 	handleSubmit = () => {
-		const title = document.querySelector('#title');
-		const body = document.querySelector('#body');
-		this.postDataToApi(title, body);
+		if (this.state.isUpdate) {
+			this.putDataToApi();
+		} else {
+			this.postDataToApi();
+		}
 	};
 
 	componentDidMount() {
@@ -73,6 +113,7 @@ export default class BlogPost extends Component {
 									key={post.id}
 									data={post}
 									onDelete={this.handleRemove}
+									onUpdate={this.handleUpdate}
 								/>
 							);
 						})}
@@ -88,6 +129,7 @@ export default class BlogPost extends Component {
 								id='title'
 								placeholder='Title'
 								onChange={this.handleFormChange}
+								value={this.state.formBlogPost.title}
 							/>
 						</div>
 						<br />
@@ -101,11 +143,13 @@ export default class BlogPost extends Component {
 								id='body'
 								cols='30'
 								rows='10'
-								onChange={this.handleFormChange}></textarea>
+								onChange={this.handleFormChange}
+								value={this.state.formBlogPost.body}
+								placeholder='add body content'></textarea>
 						</div>
 						<br />
 						<button className='submit' onClick={this.handleSubmit}>
-							Tambah
+							{this.state.textButton}
 						</button>
 					</div>
 				</div>

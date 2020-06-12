@@ -7,12 +7,20 @@ const Post = (props) => {
 				<img src='http://placeimg.com/200/150/tech' alt='' />
 			</div>
 			<div className='content'>
-				<button
-					onClick={() => props.onDelete(props.data.id)}
-					className='btn-remove '>
-					{' '}
-					Remove{' '}
-				</button>
+				<div className='actions'>
+					<button
+						onClick={() => props.onDelete(props.data.id)}
+						className='btn-remove '>
+						{' '}
+						Remove{' '}
+					</button>
+					<button
+						onClick={() => props.onUpdate(props.data)}
+						className='btn-update'>
+						{' '}
+						Update{' '}
+					</button>
+				</div>
 				<p className='title'>{props.data.title}</p>
 				<div className='desc'>{props.data.body}</div>
 			</div>
