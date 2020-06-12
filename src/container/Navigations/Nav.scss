@@ -1,0 +1,53 @@
+.topbar {
+	width: 100%;
+	margin: {
+		bottom: 2.2rem;
+	}
+
+	display: flex;
+	justify-content: center;
+
+	&-items {
+		list-style: none;
+		display: flex;
+		padding: 0.95rem 1.2rem;
+	}
+
+	&-item {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin: {
+			left: 0.6rem;
+		}
+		padding: {
+			left: 0.3rem;
+			right: 0.3rem;
+		}
+		font-size: 1.6rem;
+		&::before {
+			content: '';
+			position: absolute;
+			height: 0.2rem;
+			width: 0;
+			background-color: #0c0c0c;
+			bottom: 0;
+			left: 0;
+			transform-origin: 0 0;
+			transition: 0.2s all ease-out;
+		}
+
+		&:hover {
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+
+	&-link {
+		padding: 0.5rem 0.8rem;
+		text-align: center;
+		color: #0c0c0c;
+		text-decoration: none;
+	}
+}
