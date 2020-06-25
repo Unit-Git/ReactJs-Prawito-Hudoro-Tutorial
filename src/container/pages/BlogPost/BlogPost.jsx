@@ -97,6 +97,10 @@ export default class BlogPost extends Component {
 		}
 	};
 
+	handleDetail = (id) => {
+		this.props.history.push('/detail-post/' + id);
+	};
+
 	componentDidMount() {
 		this.handleLoadData();
 	}
@@ -114,6 +118,7 @@ export default class BlogPost extends Component {
 									data={post}
 									onDelete={this.handleRemove}
 									onUpdate={this.handleUpdate}
+									goDetail={this.handleDetail}
 								/>
 							);
 						})}

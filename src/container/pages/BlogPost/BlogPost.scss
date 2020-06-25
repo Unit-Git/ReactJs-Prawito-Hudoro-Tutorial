@@ -87,8 +87,13 @@
 	}
 
 	.title {
+		cursor: pointer;
 		font-size: 1em;
 		font-weight: bold;
+
+		&:hover {
+			color: rgba(54, 54, 54, 0.76);
+		}
 	}
 
 	.desc {

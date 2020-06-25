@@ -9,6 +9,7 @@ import MainYoutubeComp from '../pages/YoutubeComp/MainYoutubeComp';
 
 //-> components
 import NavTop from '../../component/Navigations/Nav-top';
+import DetailPost from '../pages/BlogPost/DetailPost/DetailPost';
 
 class Home extends Component {
 	render() {
@@ -23,6 +24,7 @@ class Home extends Component {
 					/>
 
 					<Route path='/' exact component={BlogPost} />
+					<Route path='/detail-post/:id' component={DetailPost} />
 					<Route path='/products' component={Product} />
 					<Route path='/yt-comp' component={MainYoutubeComp} />
 					<Route path='/lifecycle' component={LifeCycleComponent} />

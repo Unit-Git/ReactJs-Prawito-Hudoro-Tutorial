@@ -21,7 +21,9 @@ const Post = (props) => {
 						Update{' '}
 					</button>
 				</div>
-				<p className='title'>{props.data.title}</p>
+				<p className='title' onClick={() => props.goDetail(props.data.id)}>
+					{props.data.title}
+				</p>
 				<div className='desc'>{props.data.body}</div>
 			</div>
 		</div>
