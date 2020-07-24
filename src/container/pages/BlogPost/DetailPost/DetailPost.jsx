@@ -25,7 +25,6 @@ class DetailPost extends Component {
 	};
 
 	componentDidMount() {
-		// console.log(this.props.match.params.id);
 		const postId = this.props.match.params.id;
 
 		this.handleLoadDetail(postId);

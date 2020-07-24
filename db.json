@@ -2,26 +2,20 @@
   "posts": [
     {
       "id": 1591946442949,
-      "title": "second post 2",
-      "body": "second post content 2",
-      "userId": 1
-    },
-    {
-      "id": 1591948489453,
-      "title": "third post 4",
-      "body": "third post content 4",
-      "userId": 1
-    },
-    {
-      "id": 1591969402697,
-      "title": "Iphone 9 pro telah rilis",
-      "body": "Iphome 9 pro baru2 ini telah rilis",
+      "title": "second post",
+      "body": "second post content",
       "userId": 1
     },
     {
       "id": 1592674934658,
       "title": "what",
       "body": "what happened",
+      "userId": 1
+    },
+    {
+      "id": 1595606633943,
+      "title": "lanjut react js",
+      "body": "tahap lanjutan reactJS",
       "userId": 1
     }
   ],
