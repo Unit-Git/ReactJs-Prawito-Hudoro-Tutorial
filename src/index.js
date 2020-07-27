@@ -5,32 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Home from './container/Home/Home';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-
-const globalState = {
-	totalOrder: 0,
-};
-
-// reducer
-const rootReducer = (state = globalState, action) => {
-	//// jika menambahkan order
-	if (action.type === 'PLUS_ORDER') {
-		return {
-			...state,
-			totalOrder: state.totalOrder + 1,
-		};
-	}
-
-	if (action.type === 'MINUS_ORDER') {
-		if (state.totalOrder > 0) {
-			return {
-				...state,
-				totalOrder: state.totalOrder - 1,
-			};
-		}
-	}
-
-	return state;
-};
+import rootReducer from './redux/globalReducer';
 
 const store = createStore(rootReducer);
 
