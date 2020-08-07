@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ActionType from '../../../../redux/globalActionsType';
+import { RootContext } from '../../../Home/Home';
+// import { connect } from 'react-redux';
+// import ActionType from '../../../../redux/globalActionsType';
 
 class Counter extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.input = React.createRef();
-	// }
-
 	// heandleCounterChange = (newValue) => {
 	// 	this.props.onCounterChange(newValue);
 	// 	this.input.current.value = this.state.order;
@@ -38,32 +34,53 @@ class Counter extends Component {
 
 	render() {
 		return (
-			<div className='counter'>
-				<button className='minus' onClick={this.props.handleMinus}>
-					-
-				</button>
-				<input className='input-counter' type='text' value={this.props.order} />
+			<RootContext.Consumer>
+				{value => {
+					const { ref, dispatch } = value;
 
-				<button className='plus' onClick={this.props.handlePlus}>
-					+
-				</button>
-			</div>
+					return (
+						<div className='counter'>
+							<button
+								className='minus'
+								onClick={() => dispatch({ type: 'MINUS_ORDER' })}>
+								-
+							</button>
+							<input
+								className='input-counter'
+								type='text'
+								ref={ref.orderInput}
+								// value={state.totalOrder}
+							/>
+
+							<button
+								className='plus'
+								onClick={() => dispatch({ type: 'PLUS_ORDER' })}>
+								+
+							</button>
+						</div>
+					);
+				}}
+			</RootContext.Consumer>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		order: state.totalOrder,
-	};
-};
+//* redux
+// const mapStateToProps = (state) => {
+// 	return {
+// 		order: state.totalOrder,
+// 	};
+// };
 
-// memanggil dispatch
-const mapDispatchToProops = (dispatch) => {
-	return {
-		handlePlus: () => dispatch({ type: ActionType.PLUS_ORDER }),
-		handleMinus: () => dispatch({ type: ActionType.PLUS_ORDER }),
-	};
-};
+//* redux
+//=> memanggil dispatch
+// const mapDispatchToProops = (dispatch) => {
+// 	return {
+// 		handlePlus: () => dispatch({ type: ActionType.PLUS_ORDER }),
+// 		handleMinus: () => dispatch({ type: ActionType.PLUS_ORDER }),
+// 	};
+// };
 
-export default connect(mapStateToProps, mapDispatchToProops)(Counter);
+// export default connect(mapStateToProps, mapDispatchToProops)(Counter);
+
+export default Counter;

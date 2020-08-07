@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './container/Home/Home';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './redux/globalReducer';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
+// import rootReducer from './redux/globalReducer';
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
 
-const indexComponent = (
-	<Provider store={store}>
-		<Home />
-	</Provider>
-);
+// const indexComponent = (
+// 	<Provider store={store}>
+// 		<Home />
+// 	</Provider>
+// );
 
-ReactDOM.render(indexComponent, document.getElementById('root'));
+ReactDOM.render(<Home />, document.getElementById('root'));
+// ReactDOM.render(indexComponent, document.getElementById('root'));
 
 // * StateLess Component
 // const HelloComponent = () => {
