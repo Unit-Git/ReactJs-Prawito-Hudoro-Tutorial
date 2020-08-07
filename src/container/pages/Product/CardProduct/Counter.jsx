@@ -1,66 +1,34 @@
-import React, { Component } from 'react';
-import { RootContext } from '../../../Home/Home';
+import React, { Component, Fragment } from 'react';
+import { GlobalConsumer } from '../../../../context/Context';
+// import { RootContext } from '../../../Home/Home';
 // import { connect } from 'react-redux';
 // import ActionType from '../../../../redux/globalActionsType';
 
 class Counter extends Component {
-	// heandleCounterChange = (newValue) => {
-	// 	this.props.onCounterChange(newValue);
-	// 	this.input.current.value = this.state.order;
-	// };
-
-	// heandlePlus = () => {
-	// 	this.setState(
-	// 		{
-	// 			order: this.state.order + 1,
-	// 		},
-	// 		() => {
-	// 			this.heandleCounterChange(this.state.order);
-	// 		}
-	// 	);
-	// };
-	// heandleMinus = () => {
-	// 	if (this.state.order > 1) {
-	// 		this.setState(
-	// 			{
-	// 				order: this.state.order - 1,
-	// 			},
-	// 			() => {
-	// 				this.heandleCounterChange(this.state.order);
-	// 			}
-	// 		);
-	// 	}
-	// };
-
 	render() {
+		const { dispatch, refs } = this.props;
 		return (
-			<RootContext.Consumer>
-				{value => {
-					const { ref, dispatch } = value;
+			<Fragment>
+				<div className='counter'>
+					<button
+						className='minus'
+						onClick={() => dispatch({ type: 'MINUS_ORDER' })}>
+						-
+					</button>
+					<input
+						className='input-counter'
+						type='text'
+						ref={refs.orderInput}
+						// value={state.totalOrder}
+					/>
 
-					return (
-						<div className='counter'>
-							<button
-								className='minus'
-								onClick={() => dispatch({ type: 'MINUS_ORDER' })}>
-								-
-							</button>
-							<input
-								className='input-counter'
-								type='text'
-								ref={ref.orderInput}
-								// value={state.totalOrder}
-							/>
-
-							<button
-								className='plus'
-								onClick={() => dispatch({ type: 'PLUS_ORDER' })}>
-								+
-							</button>
-						</div>
-					);
-				}}
-			</RootContext.Consumer>
+					<button
+						className='plus'
+						onClick={() => dispatch({ type: 'PLUS_ORDER' })}>
+						+
+					</button>
+				</div>
+			</Fragment>
 		);
 	}
 }
@@ -83,4 +51,4 @@ class Counter extends Component {
 
 // export default connect(mapStateToProps, mapDispatchToProops)(Counter);
 
-export default Counter;
+export default GlobalConsumer(Counter);

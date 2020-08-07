@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './Product.css';
 import CardProduct from './CardProduct/CardProduct';
-import { RootContext } from '../../Home/Home';
+import { GlobalConsumer } from '../../../context/Context';
+
 // import { connect } from 'react-redux';
 
 class Product extends Component {
@@ -16,33 +17,26 @@ class Product extends Component {
 	// };
 
 	render() {
+		const { state } = this.props;
 		return (
-			<RootContext.Consumer>
-				{value => {
-					const { totalOrder } = value.state;
-
-					return (
-						<Fragment>
-							<div className='header'>
-								<div className='logo'>
-									<img
-										src='https://www.etanee.id/img/content/img_logo_etanee_white.png'
-										alt=''
-									/>
-								</div>
-								<div className='troley'>
-									<img
-										src='https://www.etanee.id/img/icon/ic_cart_white.svg'
-										alt=''
-									/>
-									<div className='count'>{totalOrder}</div>
-								</div>
-							</div>
-							<CardProduct />
-						</Fragment>
-					);
-				}}
-			</RootContext.Consumer>
+			<Fragment>
+				<div className='header'>
+					<div className='logo'>
+						<img
+							src='https://www.etanee.id/img/content/img_logo_etanee_white.png'
+							alt=''
+						/>
+					</div>
+					<div className='troley'>
+						<img
+							src='https://www.etanee.id/img/icon/ic_cart_white.svg'
+							alt=''
+						/>
+						<div className='count'>{state.totalOrder}</div>
+					</div>
+				</div>
+				<CardProduct />
+			</Fragment>
 		);
 	}
 }
@@ -52,5 +46,5 @@ class Product extends Component {
 // 		order: state.totalOrder,
 // 	};
 // };
-export default Product;
+export default GlobalConsumer(Product);
 // export default connect(mapStateToProps)(Product);
