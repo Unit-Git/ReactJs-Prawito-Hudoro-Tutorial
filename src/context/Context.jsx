@@ -9,35 +9,39 @@ const GlobalProvider = ChildrenProvider => {
 		constructor(props) {
 			super(props);
 
-			this.orderInput = React.createRef();
 			this.state = {
 				totalOrder: 3,
+				valueCounter: '',
 			};
+
+			this.orderInput = React.createRef();
 		}
 
 		componentDidMount() {
-			this.orderInput.current.value = this.state.totalOrder;
+			this.setState({
+				valueCounter: this.state.totalOrder,
+			});
 		}
 
-		plusOrder = () => {
+		plusOrder = counterBox => {
 			return this.setState(
 				{
 					totalOrder: this.state.totalOrder + 1,
 				},
 				() => {
-					return (this.orderInput.current.value = this.state.totalOrder);
+					counterBox.current.value = this.state.totalOrder;
 				}
 			);
 		};
 
-		minusOrder = () => {
+		minusOrder = counterBox => {
 			if (this.state.totalOrder > 0) {
 				return this.setState(
 					{
 						totalOrder: this.state.totalOrder - 1,
 					},
 					() => {
-						return (this.orderInput.current.value = this.state.totalOrder);
+						counterBox.current.value = this.state.totalOrder;
 					}
 				);
 			}
@@ -45,10 +49,10 @@ const GlobalProvider = ChildrenProvider => {
 
 		dispatchContext = action => {
 			if (action.type === 'PLUS_ORDER') {
-				return this.plusOrder();
+				return this.plusOrder(action.counterBox);
 			}
 			if (action.type === 'MINUS_ORDER') {
-				return this.minusOrder();
+				return this.minusOrder(action.counterBox);
 			}
 		};
 
@@ -58,9 +62,6 @@ const GlobalProvider = ChildrenProvider => {
 					value={{
 						state: this.state,
 						dispatch: this.dispatchContext,
-						refs: {
-							orderInput: this.orderInput,
-						},
 					}}>
 					<ChildrenProvider {...this.props} />
 				</Provider>

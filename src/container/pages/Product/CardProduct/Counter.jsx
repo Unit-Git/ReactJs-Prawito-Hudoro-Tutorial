@@ -5,26 +5,41 @@ import { GlobalConsumer } from '../../../../context/Context';
 // import ActionType from '../../../../redux/globalActionsType';
 
 class Counter extends Component {
+	constructor(props) {
+		super(props);
+
+		this.counter = React.createRef();
+	}
+	componentDidMount() {
+		this.counter.current.value = this.props.state.totalOrder;
+	}
+
 	render() {
-		const { dispatch, refs } = this.props;
+		const { dispatch } = this.props;
+
 		return (
 			<Fragment>
 				<div className='counter'>
 					<button
 						className='minus'
-						onClick={() => dispatch({ type: 'MINUS_ORDER' })}>
+						onClick={() =>
+							dispatch({ type: 'MINUS_ORDER', counterBox: this.counter })
+						}>
 						-
 					</button>
 					<input
 						className='input-counter'
 						type='text'
-						ref={refs.orderInput}
-						// value={state.totalOrder}
+						name='counter'
+						ref={this.counter}
+						// value={state.valueCounter}
 					/>
 
 					<button
 						className='plus'
-						onClick={() => dispatch({ type: 'PLUS_ORDER' })}>
+						onClick={() =>
+							dispatch({ type: 'PLUS_ORDER', counterBox: this.counter })
+						}>
 						+
 					</button>
 				</div>
