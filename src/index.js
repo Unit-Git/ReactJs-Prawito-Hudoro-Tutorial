@@ -15,7 +15,7 @@ import Home from './container/Home/Home';
 // 	</Provider>
 // );
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render( < Home / > , document.getElementById('root'));
 // ReactDOM.render(indexComponent, document.getElementById('root'));
 
 // * StateLess Component
