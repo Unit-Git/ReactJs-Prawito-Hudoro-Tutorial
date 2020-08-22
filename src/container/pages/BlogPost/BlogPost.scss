@@ -59,16 +59,19 @@
 	margin: {
 		top: 1em;
 	}
+
 	display: flex;
 	flex-direction: row;
 	width: 500px;
 	padding: 10px;
 	border-radius: 5px;
-	box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.2), 5px 5px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.2),
+	5px 5px 10px rgba(0, 0, 0, 0.1);
 
 	.img-thumb {
 		padding: 1px;
 		width: 45%;
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -114,6 +117,7 @@
 		top: 0.85em;
 		bottom: 0.85em;
 	}
+
 	color: #f4f4f4;
 	outline: none;
 	background-color: #ff0080;
@@ -121,12 +125,16 @@
 	border: none;
 	margin-left: auto;
 	border-radius: 0.4em;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Verdana,
+	Geneva,
+	Tahoma,
+	sans-serif;
 
 	&:hover {
 		cursor: pointer;
 	}
 }
+
 .btn-update {
 	padding: {
 		left: 1.5em;
@@ -134,6 +142,7 @@
 		top: 0.85em;
 		bottom: 0.85em;
 	}
+
 	color: #f4f4f4;
 	outline: none;
 	background-color: #00c3ff;
@@ -141,7 +150,10 @@
 	border: none;
 	margin-left: 0.6rem;
 	border-radius: 0.4em;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Verdana,
+	Geneva,
+	Tahoma,
+	sans-serif;
 
 	&:hover {
 		cursor: pointer;

@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-import Home from './container/Home/Home';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import Home from "./container/Home/Home";
 // import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
-// import rootReducer from './redux/globalReducer';
+// import rootReducer from './redux/globalReducer
+
 
 // const store = createStore(rootReducer);
 
@@ -15,7 +16,7 @@ import Home from './container/Home/Home';
 // 	</Provider>
 // );
 
-ReactDOM.render( < Home / > , document.getElementById('root'));
+ReactDOM.render( < Home / > , document.getElementById("root"));
 // ReactDOM.render(indexComponent, document.getElementById('root'));
 
 // * StateLess Component
